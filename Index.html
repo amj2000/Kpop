@@ -16,12 +16,29 @@
           animation: {
             'float': 'float 6s ease-in-out infinite',
             'spin-slow': 'spin 18s linear infinite',
+            'fade-in-up': 'fadeInUp 0.75s ease-out both',
           },
           keyframes: {
             float: {
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(-12px)' },
             },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+          animationDelay: {
+            '100': '100ms',
+            '200': '200ms',
+            '300': '300ms',
+            '400': '400ms',
+            '500': '500ms',
+            '600': '600ms',
+            '700': '700ms',
+            '800': '800ms',
+            '900': '900ms',
+            '1000': '1000ms',
           },
           boxShadow: {
             'glow-pink': '0 0 40px rgba(255, 110, 199, 0.4)',
@@ -34,10 +51,25 @@
   <style type="text/tailwindcss">
     @layer utilities {
       .text-balance { text-wrap: balance; }
+      .animate-fade-in-up { animation: fadeInUp 0.75s ease-out both; }
+      .animation-delay-100 { animation-delay: 100ms; }
+      .animation-delay-200 { animation-delay: 200ms; }
+      .animation-delay-300 { animation-delay: 300ms; }
+      .animation-delay-400 { animation-delay: 400ms; }
+      .animation-delay-500 { animation-delay: 500ms; }
+      .animation-delay-600 { animation-delay: 600ms; }
+      .animation-delay-700 { animation-delay: 700ms; }
+      .animation-delay-800 { animation-delay: 800ms; }
+      .animation-delay-900 { animation-delay: 900ms; }
+      .animation-delay-1000 { animation-delay: 1000ms; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-<body class="min-h-screen font-sans text-[#f9f9ff] antialiased flex items-center justify-center p-6 sm:p-8 md:p-10 relative overflow-hidden"
+<body class="min-h-screen font-sans text-[#f9f9ff] antialiased flex flex-col items-center py-6 px-4 sm:py-8 sm:px-6 md:py-10 md:px-8 relative overflow-y-auto"
   style="background: radial-gradient(circle at 10% 20%, rgba(255, 115, 250, 0.22), transparent 55%), radial-gradient(circle at 85% 5%, rgba(130, 170, 255, 0.18), transparent 50%), radial-gradient(circle at 5% 85%, rgba(255, 214, 165, 0.2), transparent 55%), linear-gradient(145deg, #0d001a 0%, #1a0033 35%, #2d0052 65%, #4c1482 100%);">
 
   <!-- 배경 글로우 오브 -->
@@ -48,28 +80,31 @@
 
   <div class="relative w-full max-w-4xl z-10">
     <!-- 메인 카드 -->
-    <div class="relative rounded-3xl p-8 sm:p-10 md:p-12 overflow-hidden border border-white/10 shadow-2xl shadow-black/50 backdrop-blur-xl"
-      style="background: rgba(9, 9, 24, 0.82); box-shadow: 0 28px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);">
-      <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none rounded-3xl"></div>
+    <div class="relative rounded-[28px] p-7 sm:p-9 md:p-11 overflow-hidden border border-white/20 shadow-xl shadow-black/40 bg-white/10 backdrop-blur-2xl animate-fade-in-up">
+      <div class="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-70 pointer-events-none rounded-[28px]"></div>
 
       <!-- 헤더 -->
       <header class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-10">
         <div class="flex-1 max-w-2xl">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-[0.2em] border border-white/20 bg-white/10 text-[#f1f0ff] mb-4">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-[0.2em] border border-white/20 bg-white/10 text-[#f1f0ff] mb-4 animate-fade-in-up animation-delay-100">
             <span class="w-2 h-2 rounded-full bg-pink-400 shadow-glow-pink animate-pulse"></span>
             K-POP UNIVERSE
           </div>
-          <h1 class="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tracking-[0.12em] uppercase text-white mb-2 leading-tight">
+          <h1 class="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tracking-[0.12em] uppercase text-white mb-2 leading-tight animate-fade-in-up animation-delay-200">
             K-Pop 소개
           </h1>
-          <p class="text-[#c9c8ff] text-sm sm:text-base mt-1">
+          <p class="text-[#c9c8ff] text-sm sm:text-base mt-1 animate-fade-in-up animation-delay-300">
             Korean Popular Music · 한국 대중음악
           </p>
-          <p class="text-[#f5f5ff] text-sm sm:text-base mt-2 opacity-90 max-w-xl">
+          <p class="text-[#f5f5ff] text-sm sm:text-base mt-2 opacity-90 max-w-xl animate-fade-in-up animation-delay-400">
             음악, 퍼포먼스, 패션, 팬덤이 하나로 이어지는 글로벌 컬처.
           </p>
+          <div class="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm shadow-sm animate-fade-in-up animation-delay-500">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg" alt="대한민국 국기" class="h-4 w-6 rounded-[3px] shadow-sm object-cover" />
+            <span class="text-[11px] tracking-[0.2em] uppercase text-[#e5e7ff]">Republic of Korea</span>
+          </div>
         </div>
-        <div class="flex-shrink-0 flex items-center justify-center lg:self-center">
+        <div class="flex-shrink-0 flex items-center justify-center lg:self-center animate-fade-in-up animation-delay-400">
           <div class="relative animate-float">
             <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full flex items-center justify-center shadow-glow-soft"
               style="background: radial-gradient(circle at 30% 30%, #fff, #ffe5f5 25%, #ffd2ff 40%, #d0b5ff 60%, #8c9eff 80%, #13072e 100%); box-shadow: 0 0 40px rgba(255,255,255,0.3), 0 20px 50px rgba(0,0,0,0.6);">
@@ -85,7 +120,7 @@
 
       <!-- 섹션 그리드 1 -->
       <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/10 bg-gradient-to-br from-white/10 to-transparent shadow-xl shadow-black/40 overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-glow-soft">
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft animate-fade-in-up animation-delay-500">
           <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">K-Pop이란?</h2>
           <p class="text-sm sm:text-base text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
@@ -101,20 +136,21 @@
           </div>
         </section>
 
-        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/10 bg-gradient-to-br from-white/10 to-transparent shadow-xl shadow-black/40 overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-glow-soft">
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft animate-fade-in-up animation-delay-600">
           <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">역사와 성장</h2>
           <p class="text-sm sm:text-base text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
-            1990년대 말~2000년대 초 <strong class="text-white font-semibold">H.O.T</strong>, <strong class="text-white font-semibold">젝스키스</strong>, <strong class="text-white font-semibold">빅뱅</strong>, <strong class="text-white font-semibold">소녀시대</strong> 등이
-            국내 대중음악 시장을 이끌었고, 2010년대 이후 <strong class="text-white font-semibold">BTS(방탄소년단)</strong>, <strong class="text-white font-semibold">BLACKPINK</strong> 등이
-            빌보드, 유튜브, 소셜미디어를 통해 전 세계적으로 K-Pop을 알리며 글로벌 메인스트림으로 자리 잡았습니다.
+            1990년대에는 <strong class="text-white font-semibold">서태지와 아이들</strong>, <strong class="text-white font-semibold">H.O.T</strong>, <strong class="text-white font-semibold">젝스키스</strong>, <strong class="text-white font-semibold">god</strong> 등이 음반 수백만 장을 판매하며 K-Pop의 기반을 만들었고,
+            2000년대에는 불법 다운로드와 디지털 음원 시대로 음반 시장이 침체되었다가 <strong class="text-white font-semibold">EXO</strong>와 <strong class="text-white font-semibold">방탄소년단</strong>의 밀리언셀러로 다시 활력을 되찾았습니다.
+            2010년대 이후에는 <strong class="text-white font-semibold">Wonder Girls</strong>의 빌보드 진입, <strong class="text-white font-semibold">PSY</strong>의 &lt;강남스타일&gt;, <strong class="text-white font-semibold">BTS</strong>와 <strong class="text-white font-semibold">BLACKPINK</strong>의 글로벌 투어와 유튜브 기록으로
+            K-Pop이 전 세계 대중음악 시장의 중요한 축으로 자리 잡았습니다.
           </p>
         </section>
       </div>
 
       <!-- 섹션 그리드 2 -->
       <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/10 bg-gradient-to-br from-white/10 to-transparent shadow-xl shadow-black/40 overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-glow-soft">
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft animate-fade-in-up animation-delay-700">
           <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">대표적인 아티스트</h2>
           <ul class="space-y-2.5 relative z-10">
@@ -141,18 +177,75 @@
           </ul>
         </section>
 
-        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/10 bg-gradient-to-br from-white/10 to-transparent shadow-xl shadow-black/40 overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-glow-soft">
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft animate-fade-in-up animation-delay-800">
           <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">K-Pop의 특징</h2>
           <p class="text-sm sm:text-base text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
             정교한 <strong class="text-white font-semibold">안무</strong>, 고퀄리티 <strong class="text-white font-semibold">뮤직비디오</strong>, 트렌디한 <strong class="text-white font-semibold">패션</strong>,
             그리고 SNS와 거대한 팬덤 문화가 결합되며 음악을 넘어 하나의 글로벌 문화 코드로 자리 잡았습니다.
+            팝·록·힙합·R&amp;B·일렉트로닉을 결합한 국제화된 사운드, 수십 명이 완벽하게 맞춰 추는 <strong class="text-white font-semibold">군무</strong>와 포인트 안무,
+            포토북·포토카드가 포함된 <strong class="text-white font-semibold">앨범 패키지</strong>, 영화처럼 구성된 <strong class="text-white font-semibold">뮤직비디오</strong>와 거대한 <strong class="text-white font-semibold">팬덤</strong> 문화가 K-Pop만의 정체성을 만듭니다.
           </p>
         </section>
       </div>
 
+      <!-- 장르 · 문화 뿌리 (위키백과 참고) -->
+      <section class="relative rounded-2xl p-6 sm:p-7 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 mb-6 animate-fade-in-up animation-delay-800">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">장르 · 문화 뿌리</h2>
+        <p class="text-sm text-[#e9e7ff] opacity-95 mb-3">
+          K-Pop은 <strong class="text-white font-semibold">한국 음악</strong>, <strong class="text-white font-semibold">발라드</strong>, <strong class="text-white font-semibold">R&amp;B</strong>, <strong class="text-white font-semibold">재즈</strong>, <strong class="text-white font-semibold">로큰롤</strong>, <strong class="text-white font-semibold">댄스 팝</strong>, <strong class="text-white font-semibold">일렉트로팝</strong>, <strong class="text-white font-semibold">힙합</strong> 등이 섞인 장르이며,
+          문화적으로는 미국 팝·흑인 음악(힙합)과 1990년대 대한민국 대중음악이 뿌리입니다.
+        </p>
+        <p class="text-xs text-[#c9c8ff] opacity-80">
+          참고: <a href="https://ko.wikipedia.org/wiki/K-pop" target="_blank" rel="noopener" class="text-pink-300 hover:text-pink-200 underline">위키백과 K-pop</a>
+        </p>
+      </section>
+
+      <!-- K-Pop 최신 뉴스 -->
+      <section class="relative mb-6 animate-fade-in-up animation-delay-900">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-4 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(255,110,199,0.8)]"></span>
+          K-Pop 최신 뉴스
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <article class="group relative rounded-2xl p-5 sm:p-6 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span class="inline-block text-[10px] uppercase tracking-widest text-pink-300/90 mb-2">2025 시장 동향</span>
+            <h3 class="text-white font-semibold text-sm sm:text-base mb-2 relative z-10">경험 소비 시대, 투어·콘서트가 한창</h3>
+            <p class="text-sm text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
+              연간 ‘1억 장’ 음반 시대는 저물고, <strong class="text-white font-semibold">콘서트·투어·MD</strong> 등 경험 소비가 K-팝 시장의 중심으로 부상했습니다. 하이브(HYBE) 투어 매출 약 <strong class="text-amber-200">4억 6,920만 달러</strong>, 스트레이 키즈 투어 약 <strong class="text-amber-200">1억 8,570만 달러</strong> 등 대형 투어 수익이 두드러집니다.
+            </p>
+          </article>
+          <article class="group relative rounded-2xl p-5 sm:p-6 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span class="inline-block text-[10px] uppercase tracking-widest text-pink-300/90 mb-2">Billboard Korea</span>
+            <h3 class="text-white font-semibold text-sm sm:text-base mb-2 relative z-10">2025년 최고 흥행 K-팝 투어 10선</h3>
+            <p class="text-sm text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
+              빌보드 코리아가 선정한 <strong class="text-white font-semibold">2025년 가장 흥행한 K-팝 투어 10선</strong>이 화제입니다. 투어·라이브가 시장의 핵심 수익원으로 자리 잡았고, 글로벌 투어가 K-팝 아티스트의 메인 활동으로 부상했습니다.
+            </p>
+          </article>
+          <article class="group relative rounded-2xl p-5 sm:p-6 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft md:col-span-2">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="flex flex-wrap gap-3 mb-2">
+              <span class="inline-block text-[10px] uppercase tracking-widest text-pink-300/90">기록</span>
+              <span class="inline-block text-[10px] uppercase tracking-widest text-pink-300/90">시상식</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
+              <div>
+                <h3 class="text-white font-semibold text-sm sm:text-base mb-1">BTS 유튜브 20억 뷰 돌파</h3>
+                <p class="text-sm text-[#e9e7ff] opacity-95">방탄소년단 공식 채널이 유튜브 누적 조회수 <strong class="text-white font-semibold">20억 뷰</strong>를 기록하며 K-팝 대표 채널로 자리 잡았습니다.</p>
+              </div>
+              <div>
+                <h3 class="text-white font-semibold text-sm sm:text-base mb-1">한터뮤직어워즈(HMA) 2025</h3>
+                <p class="text-sm text-[#e9e7ff] opacity-95"><strong class="text-white font-semibold">2026년 2월 15일</strong> KSPO돔(올림픽공원)에서 개최. 2025년 발매 음반·음원 한터차트 기반 시상입니다.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <!-- 푸터 -->
-      <footer class="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-6 mt-4 border-t border-white/15">
+      <footer class="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-6 mt-4 border-t border-white/15 animate-fade-in-up animation-delay-1000">
         <span class="text-sm text-[#d0cff5]">K-Pop은 계속 진화하며 전 세계 팬들과 새로운 기록을 만들어가고 있습니다.</span>
         <span class="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#b7b6ff] opacity-90">Feel the Next Wave</span>
       </footer>
