@@ -4,408 +4,157 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>K-Pop 소개</title>
-  <!-- 세련된 K-Pop 느낌을 위한 Google Font -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Outfit', 'Malgun Gothic', 'sans-serif'] },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'spin-slow': 'spin 18s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+          },
+          boxShadow: {
+            'glow-pink': '0 0 40px rgba(255, 110, 199, 0.4)',
+            'glow-soft': '0 0 60px rgba(255, 255, 255, 0.08)',
+          },
+        },
+      },
     }
-    body {
-      font-family: 'Poppins', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
-      line-height: 1.8;
-      color: #f9f9ff;
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(255, 115, 250, 0.25), transparent 55%),
-        radial-gradient(circle at 80% 0%, rgba(130, 170, 255, 0.2), transparent 50%),
-        radial-gradient(circle at 0% 80%, rgba(255, 214, 165, 0.25), transparent 55%),
-        linear-gradient(135deg, #10002b 0%, #240046 40%, #3c096c 70%, #5a189a 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2.5rem 1.5rem;
-    }
-    .glow-orbit {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .glow-orbit::before {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: conic-gradient(from 120deg, #ff6ec7, #ffb347, #8c9eff, #ff6ec7);
-      filter: blur(40px);
-      opacity: 0.22;
-      top: -120px;
-      right: -120px;
-      animation: spin 18s linear infinite;
-    }
-    .page-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 960px;
-      z-index: 1;
-    }
-    .container {
-      position: relative;
-      background: rgba(9, 9, 24, 0.85);
-      border-radius: 30px;
-      padding: 2.4rem 2.6rem 2.6rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow:
-        0 28px 80px rgba(0, 0, 0, 0.65),
-        0 0 0 1px rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(20px);
-      overflow: hidden;
-    }
-    .container::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.12), transparent 55%);
-      opacity: 0.6;
-      pointer-events: none;
-    }
-    .header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      margin-bottom: 2.2rem;
-    }
-    .title-block {
-      max-width: 60%;
-    }
-    h1 {
-      font-size: 2.3rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #ffffff;
-      margin-bottom: 0.4rem;
-    }
-    .highlight-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.2rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      background: linear-gradient(120deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04));
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #f1f0ff;
-    }
-    .subtitle {
-      color: #c9c8ff;
-      font-size: 0.9rem;
-      margin-top: 0.7rem;
-    }
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #ff6ec7;
-      box-shadow: 0 0 12px rgba(255, 110, 199, 0.9);
-    }
-    .hero-tagline {
-      font-size: 0.86rem;
-      color: #f5f5ff;
-      opacity: 0.9;
-      margin-top: 0.4rem;
-    }
-    .hero-visual {
-      position: relative;
-      flex: 0 0 210px;
-      align-self: stretch;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .disc {
-      position: relative;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 30% 30%, #ffffff, #ffe5f5 25%, #ffd2ff 40%, #d0b5ff 60%, #8c9eff 80%, #13072e 100%);
-      box-shadow:
-        0 0 40px rgba(255, 255, 255, 0.35),
-        0 18px 50px rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: float 6s ease-in-out infinite;
-    }
-    .disc::before {
-      content: "";
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #12051f 0%, #1a0934 60%, #3c096c 100%);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
-    }
-    .disc-ring {
-      position: absolute;
-      inset: 18px;
-      border-radius: 50%;
-      border: 2px dashed rgba(255, 255, 255, 0.6);
-      border-style: solid;
-      border-image: linear-gradient(120deg, rgba(255, 255, 255, 0.6), rgba(255, 110, 199, 0.4)) 1;
-      opacity: 0.85;
-    }
-    .disc-glow {
-      position: absolute;
-      inset: -16px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.7), transparent 55%);
-      opacity: 0.85;
-      mix-blend-mode: screen;
-    }
-    .disc-caption {
-      position: absolute;
-      bottom: -32px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: #f2e9ff;
-      opacity: 0.9;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
-      gap: 1.8rem;
-      margin-bottom: 2.2rem;
-    }
-    h2 {
-      font-size: 1.02rem;
-      color: #fdfbff;
-      margin-bottom: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .section {
-      position: relative;
-      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.16), transparent 55%);
-      border-radius: 20px;
-      padding: 1.3rem 1.4rem 1.45rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
-      overflow: hidden;
-    }
-    .section::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 65%);
-      mix-blend-mode: screen;
-      opacity: 0;
-      transition: opacity 0.35s ease-out;
-    }
-    .section:hover::after {
-      opacity: 1;
-    }
-    .section p {
-      font-size: 0.92rem;
-      color: #e9e7ff;
-      opacity: 0.93;
-    }
-    .section ul {
-      list-style: none;
-      margin-top: 0.4rem;
-      margin-left: 0;
-    }
-    .section li {
-      position: relative;
-      padding-left: 1.1rem;
-      margin-bottom: 0.4rem;
-      font-size: 0.9rem;
-      color: #f5f4ff;
-    }
-    .section li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.58rem;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff6ec7, #ffb347);
-      box-shadow: 0 0 10px rgba(255, 110, 199, 0.9);
-      transform: translateY(-50%);
-    }
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.7rem;
-    }
-    .chip {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      padding: 0.32rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.32);
-      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.16), transparent 55%);
-      color: #f9f8ff;
-    }
-    .highlight {
-      background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
-      padding: 0.15em 0.45em;
-      border-radius: 4px;
-      font-weight: 600;
-      color: #3b0d67;
-      box-shadow: 0 0 12px rgba(253, 203, 110, 0.7);
-    }
-    footer {
-      margin-top: 0.8rem;
-      padding-top: 1.1rem;
-      border-top: 1px solid rgba(238, 238, 238, 0.14);
-      font-size: 0.8rem;
-      color: #d0cff5;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.6rem;
-    }
-    .footer-tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #b7b6ff;
-      opacity: 0.85;
-    }
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-    @media (max-width: 768px) {
-      body {
-        padding: 1.6rem 1.1rem;
-      }
-      .container {
-        padding: 1.8rem 1.4rem 2rem;
-        border-radius: 22px;
-      }
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .title-block {
-        max-width: 100%;
-      }
-      h1 {
-        font-size: 1.7rem;
-      }
-      .hero-visual {
-        align-self: center;
-      }
-      .grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-balance { text-wrap: balance; }
     }
   </style>
 </head>
-<body>
-  <div class="glow-orbit"></div>
-  <div class="page-wrapper">
-    <div class="container">
-      <div class="header">
-        <div class="title-block">
-          <div class="highlight-pill">
-            <span class="badge-dot"></span>
-            <span>K-POP UNIVERSE</span>
+<body class="min-h-screen font-sans text-[#f9f9ff] antialiased flex items-center justify-center p-6 sm:p-8 md:p-10 relative overflow-hidden"
+  style="background: radial-gradient(circle at 10% 20%, rgba(255, 115, 250, 0.22), transparent 55%), radial-gradient(circle at 85% 5%, rgba(130, 170, 255, 0.18), transparent 50%), radial-gradient(circle at 5% 85%, rgba(255, 214, 165, 0.2), transparent 55%), linear-gradient(145deg, #0d001a 0%, #1a0033 35%, #2d0052 65%, #4c1482 100%);">
+
+  <!-- 배경 글로우 오브 -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute w-[420px] h-[420px] -top-28 -right-28 rounded-full blur-[40px] opacity-20 animate-spin-slow"
+      style="background: conic-gradient(from 120deg, #f472b6, #fbbf24, #818cf8, #f472b6);"></div>
+  </div>
+
+  <div class="relative w-full max-w-4xl z-10">
+    <!-- 메인 카드 -->
+    <div class="relative rounded-3xl p-8 sm:p-10 md:p-12 overflow-hidden border border-white/10 shadow-2xl shadow-black/50 backdrop-blur-xl"
+      style="background: rgba(9, 9, 24, 0.82); box-shadow: 0 28px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);">
+      <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none rounded-3xl"></div>
+
+      <!-- 헤더 -->
+      <header class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-10">
+        <div class="flex-1 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-[0.2em] border border-white/20 bg-white/10 text-[#f1f0ff] mb-4">
+            <span class="w-2 h-2 rounded-full bg-pink-400 shadow-glow-pink animate-pulse"></span>
+            K-POP UNIVERSE
           </div>
-          <h1>K-Pop 소개</h1>
-          <p class="subtitle">Korean Popular Music · 한국 대중음악</p>
-          <p class="hero-tagline">
+          <h1 class="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tracking-[0.12em] uppercase text-white mb-2 leading-tight">
+            K-Pop 소개
+          </h1>
+          <p class="text-[#c9c8ff] text-sm sm:text-base mt-1">
+            Korean Popular Music · 한국 대중음악
+          </p>
+          <p class="text-[#f5f5ff] text-sm sm:text-base mt-2 opacity-90 max-w-xl">
             음악, 퍼포먼스, 패션, 팬덤이 하나로 이어지는 글로벌 컬처.
           </p>
         </div>
-        <div class="hero-visual">
-          <div class="disc">
-            <div class="disc-ring"></div>
-            <div class="disc-glow"></div>
-            <span class="disc-caption">Rhythm &amp; Performance</span>
+        <div class="flex-shrink-0 flex items-center justify-center lg:self-center">
+          <div class="relative animate-float">
+            <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full flex items-center justify-center shadow-glow-soft"
+              style="background: radial-gradient(circle at 30% 30%, #fff, #ffe5f5 25%, #ffd2ff 40%, #d0b5ff 60%, #8c9eff 80%, #13072e 100%); box-shadow: 0 0 40px rgba(255,255,255,0.3), 0 20px 50px rgba(0,0,0,0.6);">
+              <div class="absolute inset-5 rounded-full border-2 border-dashed border-white/60 opacity-80"></div>
+              <div class="w-10 h-10 rounded-full bg-[#12051f] shadow-inner" style="box-shadow: 0 0 15px rgba(0,0,0,0.8);"></div>
+            </div>
+            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] sm:text-xs uppercase tracking-[0.24em] text-[#f2e9ff] opacity-90 whitespace-nowrap">
+              Rhythm &amp; Performance
+            </span>
           </div>
         </div>
-      </div>
+      </header>
 
-      <div class="grid">
-        <section class="section">
-          <h2>K-Pop이란?</h2>
-          <p>
-            <span class="highlight">K-Pop</span>은 한국 대중음악(Korean Popular Music)을 일컫는 말로,
+      <!-- 섹션 그리드 1 -->
+      <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/10 bg-gradient-to-br from-white/10 to-transparent shadow-xl shadow-black/40 overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-glow-soft">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">K-Pop이란?</h2>
+          <p class="text-sm sm:text-base text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
+            <span class="font-semibold text-amber-200 bg-amber-200/20 px-1.5 py-0.5 rounded" style="box-shadow: 0 0 12px rgba(253, 203, 110, 0.4);">K-Pop</span>은 한국 대중음악(Korean Popular Music)을 일컫는 말로,
             아이돌 그룹, 솔로 가수, 래퍼 등이 선보이는 팝·댄스·힙합·R&amp;B 등 다양한 장르를 아우릅니다.
             음악뿐 아니라 퍼포먼스, 패션, 뮤직비디오까지 치밀하게 설계된 하나의 콘셉트로 완성되는 것이 특징입니다.
           </p>
-          <div class="chips">
-            <span class="chip">Performance</span>
-            <span class="chip">Concept</span>
-            <span class="chip">Visual</span>
-            <span class="chip">Global Fans</span>
+          <div class="flex flex-wrap gap-2 mt-4 relative z-10">
+            <span class="px-3 py-1.5 text-[11px] uppercase tracking-widest rounded-full border border-white/30 bg-white/10 text-[#f9f8ff]">Performance</span>
+            <span class="px-3 py-1.5 text-[11px] uppercase tracking-widest rounded-full border border-white/30 bg-white/10 text-[#f9f8ff]">Concept</span>
+            <span class="px-3 py-1.5 text-[11px] uppercase tracking-widest rounded-full border border-white/30 bg-white/10 text-[#f9f8ff]">Visual</span>
+            <span class="px-3 py-1.5 text-[11px] uppercase tracking-widest rounded-full border border-white/30 bg-white/10 text-[#f9f8ff]">Global Fans</span>
           </div>
         </section>
 
-        <section class="section">
-          <h2>역사와 성장</h2>
-          <p>
-            1990년대 말~2000년대 초 <strong>H.O.T</strong>, <strong>젝스키스</strong>, <strong>빅뱅</strong>, <strong>소녀시대</strong> 등이
-            국내 대중음악 시장을 이끌었고, 2010년대 이후 <strong>BTS(방탄소년단)</strong>, <strong>BLACKPINK</strong> 등이
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/10 bg-gradient-to-br from-white/10 to-transparent shadow-xl shadow-black/40 overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-glow-soft">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">역사와 성장</h2>
+          <p class="text-sm sm:text-base text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
+            1990년대 말~2000년대 초 <strong class="text-white font-semibold">H.O.T</strong>, <strong class="text-white font-semibold">젝스키스</strong>, <strong class="text-white font-semibold">빅뱅</strong>, <strong class="text-white font-semibold">소녀시대</strong> 등이
+            국내 대중음악 시장을 이끌었고, 2010년대 이후 <strong class="text-white font-semibold">BTS(방탄소년단)</strong>, <strong class="text-white font-semibold">BLACKPINK</strong> 등이
             빌보드, 유튜브, 소셜미디어를 통해 전 세계적으로 K-Pop을 알리며 글로벌 메인스트림으로 자리 잡았습니다.
           </p>
         </section>
       </div>
 
-      <div class="grid">
-        <section class="section">
-          <h2>대표적인 아티스트</h2>
-          <ul>
-            <li><strong>BTS (방탄소년단)</strong> – 글로벌 차트 정상, 아미(ARMY) 팬덤</li>
-            <li><strong>BLACKPINK</strong> – 걸크러시 콘셉트, 유튜브 조회수 기록</li>
-            <li><strong>NewJeans</strong> – Y2K 감성, 신선한 사운드</li>
-            <li><strong>Stray Kids</strong> – 자기 제작 참여, 강렬한 퍼포먼스</li>
-            <li><strong>aespa</strong> – 가상 아바타와 메타버스 콘셉트</li>
+      <!-- 섹션 그리드 2 -->
+      <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/10 bg-gradient-to-br from-white/10 to-transparent shadow-xl shadow-black/40 overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-glow-soft">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">대표적인 아티스트</h2>
+          <ul class="space-y-2.5 relative z-10">
+            <li class="flex items-start gap-2 text-sm sm:text-base text-[#f5f4ff]">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-400 to-amber-400 flex-shrink-0 shadow-[0_0_8px_rgba(255,110,199,0.8)]"></span>
+              <span><strong class="text-white font-semibold">BTS (방탄소년단)</strong> – 글로벌 차트 정상, 아미(ARMY) 팬덤</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm sm:text-base text-[#f5f4ff]">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-400 to-amber-400 flex-shrink-0 shadow-[0_0_8px_rgba(255,110,199,0.8)]"></span>
+              <span><strong class="text-white font-semibold">BLACKPINK</strong> – 걸크러시 콘셉트, 유튜브 조회수 기록</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm sm:text-base text-[#f5f4ff]">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-400 to-amber-400 flex-shrink-0 shadow-[0_0_8px_rgba(255,110,199,0.8)]"></span>
+              <span><strong class="text-white font-semibold">NewJeans</strong> – Y2K 감성, 신선한 사운드</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm sm:text-base text-[#f5f4ff]">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-400 to-amber-400 flex-shrink-0 shadow-[0_0_8px_rgba(255,110,199,0.8)]"></span>
+              <span><strong class="text-white font-semibold">Stray Kids</strong> – 자기 제작 참여, 강렬한 퍼포먼스</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm sm:text-base text-[#f5f4ff]">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-pink-400 to-amber-400 flex-shrink-0 shadow-[0_0_8px_rgba(255,110,199,0.8)]"></span>
+              <span><strong class="text-white font-semibold">aespa</strong> – 가상 아바타와 메타버스 콘셉트</span>
+            </li>
           </ul>
         </section>
 
-        <section class="section">
-          <h2>K-Pop의 특징</h2>
-          <p>
-            정교한 <strong>안무</strong>, 고퀄리티 <strong>뮤직비디오</strong>, 트렌디한 <strong>패션</strong>,
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/10 bg-gradient-to-br from-white/10 to-transparent shadow-xl shadow-black/40 overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-glow-soft">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">K-Pop의 특징</h2>
+          <p class="text-sm sm:text-base text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
+            정교한 <strong class="text-white font-semibold">안무</strong>, 고퀄리티 <strong class="text-white font-semibold">뮤직비디오</strong>, 트렌디한 <strong class="text-white font-semibold">패션</strong>,
             그리고 SNS와 거대한 팬덤 문화가 결합되며 음악을 넘어 하나의 글로벌 문화 코드로 자리 잡았습니다.
           </p>
         </section>
       </div>
 
-      <footer>
-        <span>K-Pop은 계속 진화하며 전 세계 팬들과 새로운 기록을 만들어가고 있습니다.</span>
-        <span class="footer-tag">Feel the Next Wave</span>
+      <!-- 푸터 -->
+      <footer class="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-6 mt-4 border-t border-white/15">
+        <span class="text-sm text-[#d0cff5]">K-Pop은 계속 진화하며 전 세계 팬들과 새로운 기록을 만들어가고 있습니다.</span>
+        <span class="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#b7b6ff] opacity-90">Feel the Next Wave</span>
       </footer>
     </div>
   </div>
