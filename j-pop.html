@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>일본 팝 소개</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Outfit', 'Malgun Gothic', 'sans-serif'] },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'spin-slow': 'spin 18s linear infinite',
+            'fade-in-up': 'fadeInUp 0.75s ease-out both',
+          },
+          keyframes: {
+            float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } },
+            fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+          },
+          boxShadow: { 'glow-pink': '0 0 40px rgba(255, 110, 199, 0.4)', 'glow-soft': '0 0 60px rgba(255, 255, 255, 0.08)' },
+        },
+      },
+    }
+  </script>
+  <style type="text/tailwindcss">
+    .animate-fade-in-up { animation: fadeInUp 0.75s ease-out both; }
+    .animation-delay-100 { animation-delay: 100ms; } .animation-delay-200 { animation-delay: 200ms; } .animation-delay-300 { animation-delay: 300ms; } .animation-delay-400 { animation-delay: 400ms; } .animation-delay-500 { animation-delay: 500ms; } .animation-delay-600 { animation-delay: 600ms; } .animation-delay-700 { animation-delay: 700ms; } .animation-delay-800 { animation-delay: 800ms; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="min-h-screen font-sans text-[#f9f9ff] antialiased flex flex-col items-center py-6 px-4 sm:py-8 sm:px-6 md:py-10 md:px-8 relative overflow-y-auto"
+  style="background: radial-gradient(circle at 10% 20%, rgba(251, 113, 133, 0.2), transparent 55%), radial-gradient(circle at 85% 5%, rgba(190, 18, 60, 0.18), transparent 50%), radial-gradient(circle at 5% 85%, rgba(253, 164, 175, 0.18), transparent 55%), linear-gradient(145deg, #1a0a12 0%, #2d1b2e 35%, #4a1942 65%, #831843 100%);">
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute w-[420px] h-[420px] -top-28 -right-28 rounded-full blur-[40px] opacity-20 animate-spin-slow" style="background: conic-gradient(from 120deg, #fb7185, #f472b6, #e879f9, #fb7185);"></div>
+  </div>
+
+  <nav class="sticky top-0 z-20 w-full max-w-4xl mx-auto mb-6 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-2xl shadow-lg shadow-black/30 animate-fade-in-up" style="box-shadow: 0 4px 24px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.05);">
+    <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-3.5">
+      <a href="Index.html" class="flex items-center gap-2 text-white font-semibold tracking-wide hover:opacity-90 transition-opacity">
+        <span class="w-2 h-2 rounded-full bg-rose-400 shadow-[0_0_8px_rgba(251,113,133,0.6)]"></span>
+        <span class="text-sm uppercase tracking-[0.15em]">Pop Culture</span>
+      </a>
+      <ul class="flex flex-wrap items-center gap-1 sm:gap-2">
+        <li><a href="Index.html" class="inline-block px-3 py-2 rounded-xl text-xs font-medium uppercase tracking-wider text-[#e9e7ff] border border-transparent hover:bg-white/15 hover:border-white/20 hover:text-white transition-all">K-Pop</a></li>
+        <li><a href="us-pop.html" class="inline-block px-3 py-2 rounded-xl text-xs font-medium uppercase tracking-wider text-[#e9e7ff] border border-transparent hover:bg-white/15 hover:border-white/20 hover:text-white transition-all">미국 팝</a></li>
+        <li><a href="uk-pop.html" class="inline-block px-3 py-2 rounded-xl text-xs font-medium uppercase tracking-wider text-[#e9e7ff] border border-transparent hover:bg-white/15 hover:border-white/20 hover:text-white transition-all">영국 팝</a></li>
+        <li><a href="j-pop.html" class="inline-block px-3 py-2 rounded-xl text-xs font-medium uppercase tracking-wider text-rose-200 bg-white/15 border border-white/20 hover:bg-white/25 hover:border-white/30 transition-all">일본 팝</a></li>
+        <li><a href="latin-pop.html" class="inline-block px-3 py-2 rounded-xl text-xs font-medium uppercase tracking-wider text-[#e9e7ff] border border-transparent hover:bg-white/15 hover:border-white/20 hover:text-white transition-all">라틴 팝</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="relative w-full max-w-4xl z-10">
+    <div class="relative rounded-[28px] p-7 sm:p-9 md:p-11 overflow-hidden border border-white/20 shadow-xl shadow-black/40 bg-white/10 backdrop-blur-2xl animate-fade-in-up">
+      <div class="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-70 pointer-events-none rounded-[28px]"></div>
+
+      <header class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-10">
+        <div class="flex-1 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-[0.2em] border border-white/20 bg-white/10 text-[#f1f0ff] mb-4 animate-fade-in-up animation-delay-100">
+            <span class="w-2 h-2 rounded-full bg-rose-400 shadow-[0_0_12px_rgba(251,113,133,0.7)] animate-pulse"></span>
+            J-POP
+          </div>
+          <h1 class="text-3xl sm:text-4xl md:text-[2.75rem] font-bold tracking-[0.12em] uppercase text-white mb-2 leading-tight animate-fade-in-up animation-delay-200">일본 팝</h1>
+          <p class="text-[#c9c8ff] text-sm sm:text-base mt-1 animate-fade-in-up animation-delay-300">Japanese Popular Music</p>
+          <p class="text-[#f5f5ff] text-sm sm:text-base mt-2 opacity-90 max-w-xl animate-fade-in-up animation-delay-400">애니메이션, 아이돌, 시티팝. 일본만의 세련된 팝 문화.</p>
+          <div class="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm shadow-sm animate-fade-in-up animation-delay-500">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg" alt="일본 국기" class="h-4 w-6 rounded-[3px] shadow-sm object-cover" />
+            <span class="text-[11px] tracking-[0.2em] uppercase text-[#e5e7ff]">Japan</span>
+          </div>
+        </div>
+        <div class="flex-shrink-0 flex items-center justify-center lg:self-center animate-fade-in-up animation-delay-400">
+          <div class="relative animate-float">
+            <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full flex items-center justify-center shadow-glow-soft" style="background: radial-gradient(circle at 30% 30%, #fff, #ffe4e6 25%, #fecdd3 40%, #fda4af 60%, #fb7185 80%, #1a0a12 100%); box-shadow: 0 0 40px rgba(251,113,133,0.25), 0 20px 50px rgba(0,0,0,0.6);">
+              <div class="absolute inset-5 rounded-full border-2 border-dashed border-white/60 opacity-80"></div>
+              <div class="w-10 h-10 rounded-full bg-[#12051f] shadow-inner" style="box-shadow: 0 0 15px rgba(0,0,0,0.8);"></div>
+            </div>
+            <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] sm:text-xs uppercase tracking-[0.24em] text-[#f2e9ff] opacity-90 whitespace-nowrap">Anime &amp; Idol</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft animate-fade-in-up animation-delay-500">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">J-Pop이란?</h2>
+          <p class="text-sm sm:text-base text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
+            <span class="font-semibold text-rose-200 bg-rose-200/25 px-1.5 py-0.5 rounded" style="box-shadow: 0 0 12px rgba(251,113,133,0.4);">J-Pop</span>은 일본 대중가요(Japanese Pop)를 말합니다.
+            시티팝, 애니송, 아이돌, 락 밴드까지 장르가 다양하고, 애니메이션·드라마·게임과 결합된 OST 문화가 두드러집니다.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4 relative z-10">
+            <span class="px-3 py-1.5 text-[11px] uppercase tracking-widest rounded-full border border-white/30 bg-white/10 text-[#f9f8ff]">City Pop</span>
+            <span class="px-3 py-1.5 text-[11px] uppercase tracking-widest rounded-full border border-white/30 bg-white/10 text-[#f9f8ff]">Anisong</span>
+            <span class="px-3 py-1.5 text-[11px] uppercase tracking-widest rounded-full border border-white/30 bg-white/10 text-[#f9f8ff]">Idol</span>
+            <span class="px-3 py-1.5 text-[11px] uppercase tracking-widest rounded-full border border-white/30 bg-white/10 text-[#f9f8ff]">J-Rock</span>
+          </div>
+        </section>
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft animate-fade-in-up animation-delay-600">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">역사와 영향</h2>
+          <p class="text-sm sm:text-base text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
+            1980년대 <strong class="text-white font-semibold">시티팝</strong>, 90년대 <strong class="text-white font-semibold">J-Pop 전성기</strong>, 2000년대 <strong class="text-white font-semibold">애니송·아이돌</strong>이 성장했습니다.
+            오리콘 차트, 레코드 대상, 홍백가합전 등이 일본 팝의 상징이며, 전 세계 애니·오타쿠 팬층과 연결됩니다.
+          </p>
+        </section>
+      </div>
+
+      <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft animate-fade-in-up animation-delay-700">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">대표 아티스트</h2>
+          <ul class="space-y-2.5 relative z-10">
+            <li class="flex items-start gap-2 text-sm sm:text-base text-[#f5f4ff]"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-rose-400 to-pink-500 flex-shrink-0 shadow-[0_0_8px_rgba(251,113,133,0.8)]"></span><span><strong class="text-white font-semibold">Yoasobi</strong> – 애니·차트 대표</span></li>
+            <li class="flex items-start gap-2 text-sm sm:text-base text-[#f5f4ff]"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-rose-400 to-pink-500 flex-shrink-0 shadow-[0_0_8px_rgba(251,113,133,0.8)]"></span><span><strong class="text-white font-semibold">Ado</strong> – 보컬로이드·팝</span></li>
+            <li class="flex items-start gap-2 text-sm sm:text-base text-[#f5f4ff]"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-rose-400 to-pink-500 flex-shrink-0 shadow-[0_0_8px_rgba(251,113,133,0.8)]"></span><span><strong class="text-white font-semibold">Kenshi Yonezu</strong> – 싱어송라이터</span></li>
+            <li class="flex items-start gap-2 text-sm sm:text-base text-[#f5f4ff]"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-rose-400 to-pink-500 flex-shrink-0 shadow-[0_0_8px_rgba(251,113,133,0.8)]"></span><span><strong class="text-white font-semibold">AKB48</strong> – 아이돌 그룹 문화</span></li>
+          </ul>
+        </section>
+        <section class="group relative rounded-2xl p-6 sm:p-7 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft animate-fade-in-up animation-delay-800">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-3">특징</h2>
+          <p class="text-sm sm:text-base text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
+            <strong class="text-white font-semibold">오리콘</strong>, <strong class="text-white font-semibold">애니메이션 타이업</strong>, <strong class="text-white font-semibold">아이돌</strong>(AKB48 등), <strong class="text-white font-semibold">시티팝</strong> 리바이벌이 J-Pop의 정체성입니다.
+            틱톡·스트리밍으로 해외에도 J-Pop 열풍이 퍼지고 있습니다.
+          </p>
+        </section>
+      </div>
+
+      <footer class="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-6 mt-4 border-t border-white/15 animate-fade-in-up animation-delay-800">
+        <span class="text-sm text-[#d0cff5]">J-Pop은 애니메이션과 함께 전 세계로 퍼져 나가고 있습니다.</span>
+        <span class="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#b7b6ff] opacity-90">Japanese Sound</span>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
