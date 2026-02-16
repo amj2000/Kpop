@@ -1,0 +1,167 @@
+/* Auth: 로그인/회원가입 모달 - 다크 테마 */
+.auth-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.auth-modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.auth-modal {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(15, 15, 35, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: transform 0.25s ease;
+}
+.auth-modal-backdrop.is-open .auth-modal {
+  transform: scale(1);
+}
+
+.auth-modal h3 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.auth-modal label {
+  display: block;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  margin-bottom: 0.35rem;
+}
+.auth-modal input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.auth-modal input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+.auth-modal input:focus {
+  border-color: rgba(255, 110, 199, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-modal .auth-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+.auth-modal .auth-actions button {
+  flex: 1;
+  min-width: 100px;
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.auth-modal .auth-actions button:hover {
+  transform: translateY(-1px);
+}
+.auth-modal .btn-login {
+  color: #fff;
+  background: rgba(255, 110, 199, 0.5);
+  border: 1px solid rgba(255, 110, 199, 0.6);
+}
+.auth-modal .btn-login:hover {
+  background: rgba(255, 110, 199, 0.65);
+}
+.auth-modal .btn-signup {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.auth-modal .btn-signup:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.auth-modal .btn-close-modal {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.auth-modal .btn-close-modal:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* 헤더 auth 버튼 */
+.btn-open-login {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #f1f0ff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn-open-login:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.auth-user-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.auth-welcome {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.auth-logout-btn {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #fecdd3;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.auth-logout-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.hidden {
+  display: none !important;
+}

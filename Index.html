@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>K-Pop 소개</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -86,7 +88,15 @@
         <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(255,110,199,0.6)]"></span>
         <span class="text-sm uppercase tracking-[0.15em]">Pop Culture</span>
       </a>
-      <ul class="flex flex-wrap items-center gap-1 sm:gap-2">
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+        <div id="auth-login-wrap">
+          <button type="button" id="btn-open-login-modal" class="btn-open-login">로그인</button>
+        </div>
+        <div id="auth-user-wrap" class="hidden auth-user-wrap">
+          <span id="auth-welcome-text" class="auth-welcome"></span>
+          <button type="button" id="auth-logout-btn" class="auth-logout-btn">로그아웃</button>
+        </div>
+        <ul class="flex flex-wrap items-center gap-1 sm:gap-2">
         <li>
           <a href="Index.html" class="inline-block px-3 py-2 rounded-xl text-xs font-medium uppercase tracking-wider text-pink-200 bg-white/15 border border-white/20 hover:bg-white/25 hover:border-white/30 transition-all">
             K-Pop
@@ -113,8 +123,25 @@
           </a>
         </li>
       </ul>
+      </div>
     </div>
   </nav>
+
+  <!-- 로그인/회원가입 모달 -->
+  <div id="auth-modal-backdrop" class="auth-modal-backdrop" aria-hidden="true">
+    <div class="auth-modal" role="dialog" aria-label="로그인 및 회원가입">
+      <h3>로그인 / 회원가입</h3>
+      <label for="auth-modal-email">이메일</label>
+      <input type="email" id="auth-modal-email" placeholder="example@email.com" autocomplete="email" />
+      <label for="auth-modal-password">비밀번호</label>
+      <input type="password" id="auth-modal-password" placeholder="비밀번호" autocomplete="current-password" />
+      <div class="auth-actions">
+        <button type="button" id="auth-modal-btn-login" class="btn-login">로그인</button>
+        <button type="button" id="auth-modal-btn-signup" class="btn-signup">회원가입</button>
+      </div>
+      <button type="button" id="auth-modal-close" class="btn-close-modal">닫기</button>
+    </div>
+  </div>
 
   <div class="relative w-full max-w-4xl z-10">
     <!-- 메인 카드 -->
@@ -289,5 +316,6 @@
       </footer>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
