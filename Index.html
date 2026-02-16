@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -131,14 +132,36 @@
   <div id="auth-modal-backdrop" class="auth-modal-backdrop" aria-hidden="true">
     <div class="auth-modal" role="dialog" aria-label="로그인 및 회원가입">
       <h3>로그인 / 회원가입</h3>
-      <label for="auth-modal-email">이메일</label>
-      <input type="email" id="auth-modal-email" placeholder="example@email.com" autocomplete="email" />
-      <label for="auth-modal-password">비밀번호</label>
-      <input type="password" id="auth-modal-password" placeholder="비밀번호" autocomplete="current-password" />
-      <div class="auth-actions">
-        <button type="button" id="auth-modal-btn-login" class="btn-login">로그인</button>
-        <button type="button" id="auth-modal-btn-signup" class="btn-signup">회원가입</button>
+
+      <!-- 상단: 소셜 로그인 -->
+      <section class="auth-modal-social">
+        <button type="button" id="auth-btn-google" class="btn-social btn-social-google">
+          <i class="fa-brands fa-google" aria-hidden="true"></i>
+          <span>Google로 시작하기</span>
+        </button>
+        <button type="button" id="auth-btn-kakao" class="btn-social btn-social-kakao">
+          <i class="fa-solid fa-comment" aria-hidden="true"></i>
+          <span>Kakao로 시작하기</span>
+        </button>
+      </section>
+
+      <!-- 중단: 구분선 -->
+      <div class="auth-modal-divider">
+        <span class="auth-modal-divider-text">또는(OR)</span>
       </div>
+
+      <!-- 하단: 이메일 로그인 -->
+      <section class="auth-modal-email-section">
+        <label for="auth-modal-email">이메일</label>
+        <input type="email" id="auth-modal-email" placeholder="example@email.com" autocomplete="email" />
+        <label for="auth-modal-password">비밀번호</label>
+        <input type="password" id="auth-modal-password" placeholder="비밀번호" autocomplete="current-password" />
+        <div class="auth-actions">
+          <button type="button" id="auth-modal-btn-login" class="btn-login">로그인</button>
+          <button type="button" id="auth-modal-btn-signup" class="btn-signup">회원가입</button>
+        </div>
+      </section>
+
       <button type="button" id="auth-modal-close" class="btn-close-modal">닫기</button>
     </div>
   </div>

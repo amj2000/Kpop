@@ -19,6 +19,8 @@
   var btnModalClose = document.getElementById('auth-modal-close');
   var btnLogin = document.getElementById('auth-modal-btn-login');
   var btnSignup = document.getElementById('auth-modal-btn-signup');
+  var btnGoogle = document.getElementById('auth-btn-google');
+  var btnKakao = document.getElementById('auth-btn-kakao');
 
   function openModal() {
     if (authModalBackdrop) {
@@ -113,7 +115,27 @@
     if (supabase) supabase.auth.signOut();
   }
 
+  function handleGoogleLogin() {
+    if (!supabase) {
+      alert('Supabase가 연결되지 않았습니다.');
+      return;
+    }
+    supabase.auth.signInWithOAuth({ provider: 'google' }).then(function (result) {
+      if (result.error) {
+        alert(result.error.message || 'Google 로그인에 실패했습니다.');
+        return;
+      }
+      closeModal();
+    });
+  }
+
+  function handleKakaoClick() {
+    alert('준비 중입니다');
+  }
+
   if (btnOpenLogin) btnOpenLogin.addEventListener('click', openModal);
+  if (btnGoogle) btnGoogle.addEventListener('click', handleGoogleLogin);
+  if (btnKakao) btnKakao.addEventListener('click', handleKakaoClick);
   if (btnModalClose) btnModalClose.addEventListener('click', closeModal);
   if (authModalBackdrop) {
     authModalBackdrop.addEventListener('click', function (e) {

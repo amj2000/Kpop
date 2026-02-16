@@ -42,6 +42,78 @@
   text-align: center;
 }
 
+/* 상단: 소셜 로그인 섹션 */
+.auth-modal-social {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.auth-modal .btn-social {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+}
+.auth-modal .btn-social i {
+  font-size: 1.1rem;
+}
+.auth-modal .btn-social-google {
+  background: #fff;
+  border-color: #dadce0;
+  color: #1f1f1f;
+}
+.auth-modal .btn-social-google:hover {
+  background: #f8f9fa;
+  border-color: #bdc1c6;
+}
+.auth-modal .btn-social-kakao {
+  background: #FEE500;
+  border-color: #e6d000;
+  color: #1f1f1f;
+}
+.auth-modal .btn-social-kakao:hover {
+  background: #f5dc00;
+  filter: brightness(0.98);
+}
+
+/* 중단: 구분선 (또는 OR) */
+.auth-modal-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.auth-modal-divider::before,
+.auth-modal-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+.auth-modal-divider-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 하단: 이메일 로그인 섹션 */
+.auth-modal-email-section {
+  margin-bottom: 0.5rem;
+}
+.auth-modal-email-section .auth-actions {
+  margin-top: 1rem;
+}
+
 .auth-modal label {
   display: block;
   color: rgba(255, 255, 255, 0.9);
