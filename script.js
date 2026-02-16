@@ -25,6 +25,9 @@
       authModalBackdrop.classList.add('is-open');
       if (authModalEmail) authModalEmail.value = '';
       if (authModalPassword) authModalPassword.value = '';
+      setTimeout(function () {
+        alert('이메일과 비밀번호를 입력해 주세요.\n처음 오셨다면 회원가입을 먼저 진행해 주세요.');
+      }, 100);
     }
   }
 
@@ -70,10 +73,17 @@
     }
     supabase.auth.signUp({ email: email, password: password }).then(function (result) {
       if (result.error) {
-        alert(result.error.message || '회원가입에 실패했습니다.');
+        var msg = (result.error.message || '').toLowerCase();
+        if (msg.indexOf('already') !== -1 || msg.indexOf('registered') !== -1) {
+          alert('이미 가입된 이메일입니다.\n로그인을 이용해 주세요.');
+        } else if (msg.indexOf('email signups are disabled') !== -1 || msg.indexOf('signups are disabled') !== -1) {
+          alert('이메일 회원가입이 비활성화되어 있습니다.\nSupabase 대시보드 → Authentication → Providers → Email 에서 "Enable Email Signup"을 켜 주세요.');
+        } else {
+          alert(result.error.message || '회원가입에 실패했습니다. 다시 시도해 주세요.');
+        }
         return;
       }
-      alert('가입 확인 이메일을 보냈습니다. 메일함을 확인해 주세요.');
+      alert('환영합니다! 가입이 완료되었습니다.');
       closeModal();
     });
   }
@@ -91,9 +101,10 @@
     }
     supabase.auth.signInWithPassword({ email: email, password: password }).then(function (result) {
       if (result.error) {
-        alert(result.error.message || '로그인에 실패했습니다.');
+        alert(result.error.message || '로그인에 실패했습니다. 이메일과 비밀번호를 확인해 주세요.');
         return;
       }
+      alert('반갑습니다! 로그인되었습니다.');
       closeModal();
     });
   }
