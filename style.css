@@ -214,9 +214,32 @@
   gap: 0.6rem;
   flex-wrap: wrap;
 }
-.auth-welcome {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.9);
+.auth-user-avatar {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+}
+.auth-user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.auth-user-avatar .auth-user-avatar-icon {
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.auth-user-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
 }
 .auth-logout-btn {
   padding: 0.35rem 0.65rem;

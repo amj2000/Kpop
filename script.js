@@ -12,7 +12,8 @@
   var btnOpenLogin = document.getElementById('btn-open-login-modal');
   var authLoginWrap = document.getElementById('auth-login-wrap');
   var authUserWrap = document.getElementById('auth-user-wrap');
-  var authWelcome = document.getElementById('auth-welcome-text');
+  var authUserAvatar = document.getElementById('auth-user-avatar');
+  var authUserName = document.getElementById('auth-user-name');
   var authLogoutBtn = document.getElementById('auth-logout-btn');
   var authModalEmail = document.getElementById('auth-modal-email');
   var authModalPassword = document.getElementById('auth-modal-password');
@@ -39,7 +40,17 @@
     if (user && user.email) {
       authLoginWrap.classList.add('hidden');
       authUserWrap.classList.remove('hidden');
-      if (authWelcome) authWelcome.textContent = '환영합니다 ' + user.email + '님';
+      var meta = user.user_metadata || {};
+      var avatarUrl = meta.avatar_url;
+      var displayName = meta.full_name || user.email || '사용자';
+      if (authUserAvatar) {
+        if (avatarUrl) {
+          authUserAvatar.innerHTML = '<img src="' + avatarUrl + '" alt="" class="auth-user-avatar-img">';
+        } else {
+          authUserAvatar.innerHTML = '<i class="fa-solid fa-user-circle auth-user-avatar-icon" aria-hidden="true"></i>';
+        }
+      }
+      if (authUserName) authUserName.textContent = displayName;
     } else {
       authLoginWrap.classList.remove('hidden');
       authUserWrap.classList.add('hidden');
