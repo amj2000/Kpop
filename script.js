@@ -27,9 +27,6 @@
       authModalBackdrop.classList.add('is-open');
       if (authModalEmail) authModalEmail.value = '';
       if (authModalPassword) authModalPassword.value = '';
-      setTimeout(function () {
-        alert('이메일과 비밀번호를 입력해 주세요.\n처음 오셨다면 회원가입을 먼저 진행해 주세요.');
-      }, 100);
     }
   }
 
@@ -103,7 +100,7 @@
     }
     supabase.auth.signInWithPassword({ email: email, password: password }).then(function (result) {
       if (result.error) {
-        alert(result.error.message || '로그인에 실패했습니다. 이메일과 비밀번호를 확인해 주세요.');
+        alert('로그인에 실패했습니다. 아이디/비밀번호를 확인하거나, 아직 회원이 아니시라면 [회원가입]을 진행해 주세요.');
         return;
       }
       alert('반갑습니다! 로그인되었습니다.');
