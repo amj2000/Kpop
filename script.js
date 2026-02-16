@@ -120,7 +120,15 @@
       alert('Supabase가 연결되지 않았습니다.');
       return;
     }
-    supabase.auth.signInWithOAuth({ provider: 'google' }).then(function (result) {
+    supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'consent select_account'
+        }
+      }
+    }).then(function (result) {
       if (result.error) {
         alert(result.error.message || 'Google 로그인에 실패했습니다.');
         return;
