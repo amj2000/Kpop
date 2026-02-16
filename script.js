@@ -1,14 +1,10 @@
 (function () {
   'use strict';
 
-  // ========== Supabase 설정 (본인 프로젝트 값으로 교체하세요) ==========
-  const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
-  const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
-  // =================================================================
-
-  if (SUPABASE_URL === 'YOUR_SUPABASE_PROJECT_URL' || SUPABASE_ANON_KEY === 'YOUR_SUPABASE_ANON_KEY') {
-    console.warn('Supabase URL/Key를 script.js 상단에서 본인 프로젝트 값으로 교체해 주세요.');
-  }
+  // ========== Supabase 설정 ==========
+  const SUPABASE_URL = 'https://nksjbujftddladafntrq.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_kXOKx82MyeV2RsisCLe4yw_LJ2qpwvb';
+  // ===================================
 
   const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
