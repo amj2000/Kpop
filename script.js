@@ -145,13 +145,30 @@
     });
   }
 
-  function handleKakaoClick() {
-    alert('준비 중입니다');
+  function handleKakaoLogin() {
+    if (!supabase) {
+      alert('Supabase가 연결되지 않았습니다.');
+      return;
+    }
+    supabase.auth.signInWithOAuth({
+      provider: 'kakao',
+      options: {
+        queryParams: {
+          prompt: 'login'
+        }
+      }
+    }).then(function (result) {
+      if (result.error) {
+        alert(result.error.message || '카카오 로그인에 실패했습니다.');
+        return;
+      }
+      closeModal();
+    });
   }
 
   if (btnOpenLogin) btnOpenLogin.addEventListener('click', openModal);
   if (btnGoogle) btnGoogle.addEventListener('click', handleGoogleLogin);
-  if (btnKakao) btnKakao.addEventListener('click', handleKakaoClick);
+  if (btnKakao) btnKakao.addEventListener('click', handleKakaoLogin);
   if (btnModalClose) btnModalClose.addEventListener('click', closeModal);
   if (authModalBackdrop) {
     authModalBackdrop.addEventListener('click', function (e) {
