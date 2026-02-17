@@ -191,6 +191,17 @@
   color: #fff;
 }
 
+/* 헤더 auth 영역 - 모든 페이지에서 표시 */
+#auth-login-wrap {
+  display: block;
+}
+#auth-login-wrap.hidden {
+  display: none !important;
+}
+#auth-user-wrap.hidden {
+  display: none !important;
+}
+
 /* 헤더 auth 버튼 */
 .btn-open-login {
   padding: 0.4rem 0.75rem;
@@ -259,4 +270,143 @@
 
 .hidden {
   display: none !important;
+}
+
+/* ========== K-Pop 최신 뉴스 (실시간 검색 + 텍스트 리스트) ========== */
+.news-search-wrap {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 100%;
+}
+.news-search-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: #fff;
+  background: rgba(30, 27, 45, 0.6);
+  border: 1px solid rgba(167, 139, 250, 0.5);
+  border-radius: 0.5rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.news-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+.news-search-input:hover {
+  border-color: rgba(167, 139, 250, 0.7);
+}
+.news-search-input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
+}
+.news-search-btn {
+  flex-shrink: 0;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(167, 139, 250, 0.25);
+  border: 1px solid rgba(167, 139, 250, 0.5);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.news-search-btn:hover {
+  background: rgba(167, 139, 250, 0.35);
+  border-color: #a78bfa;
+}
+.news-list__loading-msg {
+  list-style: none;
+  padding: 1.5rem;
+  margin: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.news-loading {
+  padding: 1rem;
+  text-align: center;
+}
+
+.news-section .news-one-col {
+  width: 100%;
+  max-width: 100%;
+}
+
+.news-one-col.hidden {
+  display: none;
+}
+.news-one-col:not(.hidden) {
+  display: block;
+}
+
+.news-one-col .news-col__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.news-list__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  padding-right: 1.25rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  transition: background 0.2s ease, color 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.news-list__item:last-child {
+  border-bottom: none;
+}
+.news-list__item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+.news-list__item:hover .news-list__title {
+  color: #a78bfa;
+}
+
+.news-list__date {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  min-width: 5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.news-list__sep {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.75rem;
+  user-select: none;
+}
+
+.news-list__title {
+  flex: 1;
+  min-width: 0;
+  color: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

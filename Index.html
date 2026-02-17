@@ -292,46 +292,20 @@
         </p>
       </section>
 
-      <!-- K-Pop 최신 뉴스 -->
-      <section class="relative mb-6 animate-fade-in-up animation-delay-900">
+      <!-- K-Pop 최신 뉴스 (단일 컬럼 풀 width) -->
+      <section class="relative mb-6 animate-fade-in-up animation-delay-900 news-section">
         <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-4 flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(255,110,199,0.8)]"></span>
           K-Pop 최신 뉴스
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <article class="group relative rounded-2xl p-5 sm:p-6 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span class="inline-block text-[10px] uppercase tracking-widest text-pink-300/90 mb-2">2025 시장 동향</span>
-            <h3 class="text-white font-semibold text-sm sm:text-base mb-2 relative z-10">경험 소비 시대, 투어·콘서트가 한창</h3>
-            <p class="text-sm text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
-              연간 ‘1억 장’ 음반 시대는 저물고, <strong class="text-white font-semibold">콘서트·투어·MD</strong> 등 경험 소비가 K-팝 시장의 중심으로 부상했습니다. 하이브(HYBE) 투어 매출 약 <strong class="text-amber-200">4억 6,920만 달러</strong>, 스트레이 키즈 투어 약 <strong class="text-amber-200">1억 8,570만 달러</strong> 등 대형 투어 수익이 두드러집니다.
-            </p>
-          </article>
-          <article class="group relative rounded-2xl p-5 sm:p-6 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span class="inline-block text-[10px] uppercase tracking-widest text-pink-300/90 mb-2">Billboard Korea</span>
-            <h3 class="text-white font-semibold text-sm sm:text-base mb-2 relative z-10">2025년 최고 흥행 K-팝 투어 10선</h3>
-            <p class="text-sm text-[#e9e7ff] leading-relaxed opacity-95 relative z-10">
-              빌보드 코리아가 선정한 <strong class="text-white font-semibold">2025년 가장 흥행한 K-팝 투어 10선</strong>이 화제입니다. 투어·라이브가 시장의 핵심 수익원으로 자리 잡았고, 글로벌 투어가 K-팝 아티스트의 메인 활동으로 부상했습니다.
-            </p>
-          </article>
-          <article class="group relative rounded-2xl p-5 sm:p-6 border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 hover:border-white/40 hover:shadow-glow-soft md:col-span-2">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div class="flex flex-wrap gap-3 mb-2">
-              <span class="inline-block text-[10px] uppercase tracking-widest text-pink-300/90">기록</span>
-              <span class="inline-block text-[10px] uppercase tracking-widest text-pink-300/90">시상식</span>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
-              <div>
-                <h3 class="text-white font-semibold text-sm sm:text-base mb-1">BTS 유튜브 20억 뷰 돌파</h3>
-                <p class="text-sm text-[#e9e7ff] opacity-95">방탄소년단 공식 채널이 유튜브 누적 조회수 <strong class="text-white font-semibold">20억 뷰</strong>를 기록하며 K-팝 대표 채널로 자리 잡았습니다.</p>
-              </div>
-              <div>
-                <h3 class="text-white font-semibold text-sm sm:text-base mb-1">한터뮤직어워즈(HMA) 2025</h3>
-                <p class="text-sm text-[#e9e7ff] opacity-95"><strong class="text-white font-semibold">2026년 2월 15일</strong> KSPO돔(올림픽공원)에서 개최. 2025년 발매 음반·음원 한터차트 기반 시상입니다.</p>
-              </div>
-            </div>
-          </article>
+        <div id="news-search-wrap" class="news-search-wrap">
+          <input type="text" id="news-search-input" class="news-search-input" placeholder="궁금한 아티스트나 키워드를 입력하세요 (예: 뉴진스, BTS)" autocomplete="off" />
+          <button type="button" id="news-search-btn" class="news-search-btn">검색</button>
+        </div>
+        <p id="news-loading" class="news-loading text-[#e9e7ff] text-sm">뉴스를 불러오는 중...</p>
+        <div id="news-one-col" class="news-one-col hidden">
+          <h3 class="news-col__title">🇰🇷 국내 K-POP 실시간 (Source: Google News)</h3>
+          <ul id="news-list-domestic" class="news-list"></ul>
         </div>
       </section>
 

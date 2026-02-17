@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>미국 팝 소개</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -45,15 +48,58 @@
         <span class="w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.6)]"></span>
         <span class="text-sm uppercase tracking-[0.15em]">Pop Culture</span>
       </a>
-      <ul class="flex flex-wrap items-center gap-1 sm:gap-2">
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+        <div id="auth-login-wrap">
+          <button type="button" id="btn-open-login-modal" class="btn-open-login">로그인</button>
+        </div>
+        <div id="auth-user-wrap" class="hidden auth-user-wrap">
+          <div id="auth-user-avatar" class="auth-user-avatar">
+            <i class="fa-solid fa-user-circle auth-user-avatar-icon" aria-hidden="true"></i>
+          </div>
+          <span id="auth-user-name" class="auth-user-name"></span>
+          <button type="button" id="auth-logout-btn" class="auth-logout-btn">로그아웃</button>
+        </div>
+        <ul class="flex flex-wrap items-center gap-1 sm:gap-2">
         <li><a href="Index.html" class="inline-block px-3 py-2 rounded-xl text-xs font-medium uppercase tracking-wider text-[#e9e7ff] border border-transparent hover:bg-white/15 hover:border-white/20 hover:text-white transition-all">K-Pop</a></li>
         <li><a href="us-pop.html" class="inline-block px-3 py-2 rounded-xl text-xs font-medium uppercase tracking-wider text-sky-200 bg-white/15 border border-white/20 hover:bg-white/25 hover:border-white/30 transition-all">미국 팝</a></li>
         <li><a href="uk-pop.html" class="inline-block px-3 py-2 rounded-xl text-xs font-medium uppercase tracking-wider text-[#e9e7ff] border border-transparent hover:bg-white/15 hover:border-white/20 hover:text-white transition-all">영국 팝</a></li>
         <li><a href="j-pop.html" class="inline-block px-3 py-2 rounded-xl text-xs font-medium uppercase tracking-wider text-[#e9e7ff] border border-transparent hover:bg-white/15 hover:border-white/20 hover:text-white transition-all">일본 팝</a></li>
         <li><a href="latin-pop.html" class="inline-block px-3 py-2 rounded-xl text-xs font-medium uppercase tracking-wider text-[#e9e7ff] border border-transparent hover:bg-white/15 hover:border-white/20 hover:text-white transition-all">라틴 팝</a></li>
       </ul>
+      </div>
     </div>
   </nav>
+
+  <!-- 로그인/회원가입 모달 -->
+  <div id="auth-modal-backdrop" class="auth-modal-backdrop" aria-hidden="true">
+    <div class="auth-modal" role="dialog" aria-label="로그인 및 회원가입">
+      <h3>로그인 / 회원가입</h3>
+      <section class="auth-modal-social">
+        <button type="button" id="auth-btn-google" class="btn-social btn-social-google">
+          <i class="fa-brands fa-google" aria-hidden="true"></i>
+          <span>Google로 시작하기</span>
+        </button>
+        <button type="button" id="auth-btn-kakao" class="btn-social btn-social-kakao">
+          <i class="fa-solid fa-comment" aria-hidden="true"></i>
+          <span>Kakao로 시작하기</span>
+        </button>
+      </section>
+      <div class="auth-modal-divider">
+        <span class="auth-modal-divider-text">또는(OR)</span>
+      </div>
+      <section class="auth-modal-email-section">
+        <label for="auth-modal-email">이메일</label>
+        <input type="email" id="auth-modal-email" placeholder="example@email.com" autocomplete="email" />
+        <label for="auth-modal-password">비밀번호</label>
+        <input type="password" id="auth-modal-password" placeholder="비밀번호" autocomplete="current-password" />
+        <div class="auth-actions">
+          <button type="button" id="auth-modal-btn-login" class="btn-login">로그인</button>
+          <button type="button" id="auth-modal-btn-signup" class="btn-signup">회원가입</button>
+        </div>
+      </section>
+      <button type="button" id="auth-modal-close" class="btn-close-modal">닫기</button>
+    </div>
+  </div>
 
   <div class="relative w-full max-w-4xl z-10">
     <div class="relative rounded-[28px] p-7 sm:p-9 md:p-11 overflow-hidden border border-white/20 shadow-xl shadow-black/40 bg-white/10 backdrop-blur-2xl animate-fade-in-up">
@@ -130,11 +176,26 @@
         </section>
       </div>
 
+      <!-- 최신 뉴스 (단일 컬럼 풀 width) -->
+      <section class="relative mb-6 animate-fade-in-up animation-delay-900 news-section">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.14em] text-white mb-4 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
+          미국 팝 최신 뉴스
+        </h2>
+        <p id="news-loading" class="news-loading text-[#e9e7ff] text-sm">뉴스를 불러오는 중...</p>
+        <div id="news-one-col" class="news-one-col hidden">
+          <h3 class="news-col__title">🇺🇸 미국 팝 실시간 (Source: Google News)</h3>
+          <ul id="news-list-domestic" class="news-list"></ul>
+        </div>
+      </section>
+
       <footer class="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-6 mt-4 border-t border-white/15 animate-fade-in-up animation-delay-800">
         <span class="text-sm text-[#d0cff5]">미국 팝은 여전히 글로벌 대중음악의 중심입니다.</span>
         <span class="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#b7b6ff] opacity-90">American Sound</span>
       </footer>
     </div>
   </div>
+  <script>window.NEWS_RSS_URL = 'https://news.google.com/rss/search?q=Billboard+Hot+100+Pop&hl=ko&gl=KR&ceid=KR:ko';</script>
+  <script src="script.js"></script>
 </body>
 </html>
