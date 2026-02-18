@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <script>
+    // 접속 도메인에 따른 측정 ID 설정
+    var GA_ID = window.location.hostname.includes('vercel.app')
+                ? 'G-3BZNY9T39M'
+                : 'G-6FE712F9R6';
+    // 구글 태그 매니저 스크립트 로드
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(script);
+    // 구글 애널리틱스 초기화
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>미국 팝 소개</title>
